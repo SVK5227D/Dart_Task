@@ -2,11 +2,15 @@ import 'dart:io';
 import 'dart:math';
 
 void main() {
-  var firstClass = FirstClass();
-  firstClass.random();
-  firstClass.valdationList();
+  // var firstClass = FirstClass();
+  // firstClass.random();
+  // firstClass.valdationList();
   var secondClass = SecondClass();
-  secondClass.valueOfMap();
+  // secondClass.valueOfMap();
+  secondClass.random();
+  // // String name = 'Sample';
+  // int age = 25;
+  // var constation = Construct(name,age);
 }
 
 abstract class Demo {
@@ -22,7 +26,7 @@ class AddListValue extends Demo {
     print('Enter how any random value add in list');
     String? y = stdin.readLineSync();
     int? userInput = int.tryParse(y!);
-    if (userInput == null || userInput == 0) {
+    if (userInput == null) {
       print('You want type only number');
     } else {
       // Adding random values in list
@@ -85,50 +89,93 @@ class FirstClass extends AddListValue {
   }
 }
 
-class AddValueMap{
+class AddValueMap {
   valueOfMap() {
     List? valueOfmap = [];
     print('Enter how many want add into map');
     String? y = stdin.readLineSync();
     int? userInput = int.tryParse(y!);
-    if (userInput == null || userInput == 0) {
+    if (userInput == null) {
       print('You want type only number');
     } else {
       for (int i = 0; i < userInput; i++) {
-          print('Enter the name');
-          String? name = stdin.readLineSync();
-          print('Enter the year');
-          String? year = stdin.readLineSync();
-          print('Enter the rank');
-          String? rank = stdin.readLineSync();
-          valueOfmap.add({'name':name,'Year': year,'Rank': rank});
+        print('Enter the name');
+        String? name = stdin.readLineSync();
+        print('Enter the year');
+        String? year = stdin.readLineSync();
+        print('Enter the rank');
+        String? rank = stdin.readLineSync();
+        valueOfmap.add({'name': name, 'Year': year, 'Rank': rank});
       }
     }
   }
 }
 
-class SecondClass implements AddValueMap  {
-    @override
-    valueOfMap() {
+class SecondClass implements AddValueMap, Demo {
+  @override
+  valueOfMap() {
     List? valueOfmap = [];
     print('Enter how many want add into map');
     String? y = stdin.readLineSync();
     int? userInput = int.tryParse(y!);
-    if (userInput == null || userInput == 0) {
+    if (userInput == null) {
       print('You want type only number');
     } else {
       // Adding value in list with the formate of map
       for (int i = 0; i < userInput; i++) {
-          print('Enter the name');
-          String? name = stdin.readLineSync();
-          print('Enter the year');
-          String? year = stdin.readLineSync();
-          print('Enter the rank');
-          String? rank = stdin.readLineSync();
-          valueOfmap.add({'name':name,'Year': year,'Rank': rank});
+        print('Enter the name');
+        String? name = stdin.readLineSync();
+        print('Enter the year');
+        String? year = stdin.readLineSync();
+        print('Enter the rank');
+        String? rank = stdin.readLineSync();
+        valueOfmap.add({'name': name, 'Year': year, 'Rank': rank});
       }
       print('Value of map is');
       print(valueOfmap);
+    }
+  }
+
+  @override
+  random() {
+    List? arrayValue = [];
+    int check = 1;
+    var rng = Random();
+    print('Enter how any random value add in list');
+    String? y = stdin.readLineSync();
+    int? userInput = int.tryParse(y!);
+    if (userInput == null) {
+      print('You want type only number');
+      check++;
+    } else {
+      // Adding random values in list
+      for (int i = 0; i < userInput; i++) {
+        arrayValue.add(rng.nextInt(100));
+      }
+    } 
+    
+    if(check>1){
+      
+    }
+    else if(arrayValue.length == 0){
+      print('There is no value in list');
+    }
+    else{
+      print(arrayValue);
+    }       
+  }
+}
+
+class Construct {
+  String? inputName;
+  int? inputAge;
+  Construct(String name, int age) {
+    if (name.runtimeType != String && age == 0) {
+      print('There no value passed in constuctors');
+    } else {
+      this.inputName = name;
+      this.inputAge = age;
+      print('name : $inputName , age: $inputAge ');
     }
   }
 }
