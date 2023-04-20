@@ -88,18 +88,4 @@ class Map {
       print(value);
     }
   }
-  // withoutKey() {
-  //   List? value = [];
-  //   print('Enter how any random value add in map');
-  //   String? y = stdin.readLineSync();
-  //   int? userInput = int.parse(y!);
-  //   for (int i = 0; i < userInput; i++) {
-  //     print('Enter value of name ${i + 1}');
-  //     String? valueOfKey = stdin.readLineSync();
-  //     print('Enter value of class ${i + 1}');
-  //     String? keyOfClass = stdin.readLineSync();
-  //     value.add({'name': valueOfKey, 'class': keyOfClass});
-  //   }
-  //   print(value);
-  // }
 }
